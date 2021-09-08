@@ -202,6 +202,10 @@ template {
   display: none;
 }
 
+#mapid {
+  height: 180px;
+}
+
 h1 {
   color: black;
 }
