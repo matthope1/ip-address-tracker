@@ -13,27 +13,53 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./scripts/script.js"></script>
-
   <title>| IP Address Tracker |</title>
 </head>
 <body>
-
-  IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-
-  <div id="mapid"></div>
-  
-  <div class="attribution">
-    Coded by <a href="#">Matt</a>.
+  <div id="content" >
+    <div class="header">
+      <div class="wrapper">
+        <h1>IP Address Tracker</h1>
+        <form id="target">
+          <input type="text" id="ip" required name="ip" placeholder="Search for any IP address"><br><br>
+          <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="14"><path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6"/></svg></button>
+        </form> 
+      </div>
+    </div>
+    <div class="wrapper">
+      <div id="loader" >
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(255, 255, 255); display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+          <circle cx="50" cy="50" r="0" fill="none" stroke="#e90c59" stroke-width="2">
+            <animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;40" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline" begin="0s"></animate>
+            <animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline" begin="0s"></animate>
+          </circle><circle cx="50" cy="50" r="0" fill="none" stroke="#46dff0" stroke-width="2">
+            <animate attributeName="r" repeatCount="indefinite" dur="1s" values="0;40" keyTimes="0;1" keySplines="0 0.2 0.8 1" calcMode="spline" begin="-0.5s"></animate>
+            <animate attributeName="opacity" repeatCount="indefinite" dur="1s" values="1;0" keyTimes="0;1" keySplines="0.2 0 0.8 1" calcMode="spline" begin="-0.5s"></animate>
+          </circle>
+        </svg>
+      </div>
+      <div class="data-container" id="data-container" style="display: none">
+        <div class="data ip-address">
+          <span class="title">ip address</span>
+          <span class="data-display" id="ip-address"></span>
+        </div>
+        <div class="data location">
+          <span class="title">location</span>
+          <span class="data-display" id="location"></span>
+        </div>
+        <div class="data time-zone">
+          <span class="title">timezone</span>
+          <span class="data-display" id="time-zone"></span>
+        </div>
+        <div class="data isp">
+          <span class="title">isp</span>
+          <span class="data-display" id="isp"></span>
+        </div>
+      </div>
+    </div>
+    <div id="mapid"></div>
   </div>
-
 </body>
 </html>

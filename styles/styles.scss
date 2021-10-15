@@ -6,8 +6,160 @@ $darkGray: hsl(0, 0%, 59%);
 $fontSize: 18px;
 $primaryFont: 'Rubik', sans-serif;
 
-#mapid { height: 180px; }
+#mapid { 
+	height: 70vh;
+	width: 100%;
+}
+
+// remove leaflet attribution
+#mapid > div.leaflet-control-container > div.leaflet-bottom.leaflet-right > div {
+	display: none;
+}
+
+body {
+	font-family: $primaryFont;
+}
 
 h1 {
-	color: black;
+	color: white;
+	margin-top: 0;
+	text-align: center;
+}
+
+.wrapper {
+	width: 80%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.header {
+	padding-top: 30px;
+	background-image: url("../images/pattern-bg.png");
+	background-position: center;
+	background-size: cover;
+	height: 30vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	form {
+		width: 100%
+	}
+
+	input {
+		border: none;
+		padding: 20px;
+		border-radius: 10px 0 0 10px;
+		display: block;
+		width: 55%;
+		font-size: 22px;
+		&:focus {
+			outline: none;
+		}
+	}
+
+	form {
+		display: flex;
+		justify-content: center;
+		button {
+			background-color: black;
+			border: none;
+			border-radius: 0 10px 10px 0;
+			width: 70px;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.data-container {
+	position: absolute;
+	z-index: 9999;
+	display: flex;
+	border-radius: 15px;
+	padding: 27px;
+	top: 25vh;
+	min-height: 95px;
+	background-color: white;
+	justify-content: space-between;
+	width: 70%;
+	max-width: 960px;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	text-align: center;
+
+	.data {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		font-weight: 700;
+		padding-left: 15px;
+		flex: 1 1 0px;
+
+		&.ip-address,
+		&.location,
+		&.time-zone {
+			border-right: 1px solid grey;
+		}
+
+		.data-display {
+			margin-top: 10px;
+			font-size: 25px;
+		}
+	}
+
+	.title {
+		text-transform: uppercase;
+		color: $darkGray;
+		letter-spacing: 3px;
+	}
+
+	.data {
+		color: $veryDarkGray;
+	}
+}
+
+@media (max-width: 840px) {
+	.data-container {
+		flex-direction: column;
+		justify-content: center;
+		padding-top: 0;
+		top: 21vh;
+
+		.data {
+			&.ip-address,
+			&.location,
+			&.time-zone {
+				border: none;
+			}
+		}
+
+		.data {
+			align-items: center;
+			margin-top: 30px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		input {
+			font-size: 20px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.header {
+		input {
+			font-size: 18px;
+		}
+	}
 }
