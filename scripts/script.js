@@ -73,7 +73,7 @@ $(document).ready( function() {
 
 		let validIp = validateIPaddress(data.ip)	
 
-		if (valdIp) {
+		if (validIp) {
 			let ipData = await getIpData(data.ip)
 			// update ui
 			if(ipData.ip!=undefined){
